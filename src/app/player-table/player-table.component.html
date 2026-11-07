@@ -1,0 +1,156 @@
+<div class="h-full w-screen bg-slate-200">
+    <div class="flex flex-row justify-between mb-4 mx-4">
+        <div class="font-bold text-xl">
+            Basketball Player Performance Analysis
+        </div>
+        <div>
+            <button [routerLink]="['/compare']" class="mr-4">Compare</button>
+            <button [routerLink]="['/cluster']">Cluster</button>
+        </div>
+    </div>
+    <!-- <div class="overflow-x-scroll mx-1">
+        <table border="1" class="table-auto w-full border border-gray-300 rounded-xl">
+            <tr class="bg-gray-200">
+                <th (click)="sort('Name')" class="hover:cursor-pointer border border-gray-300">Name</th>
+                <th (click)="sort('GamesPlayed')" class="hover:cursor-pointer border border-gray-300">Games Played</th>
+                <th (click)="sort('MinutesPlayed')" class="hover:cursor-pointer border border-gray-300">Minutes Played
+                </th>
+                <th (click)="sort('PointsPerGame')" class="hover:cursor-pointer border border-gray-300">Points Per Game
+                </th>
+                <th (click)="sort('FieldGoalsMade')" class="hover:cursor-pointer border border-gray-300">Field Goals
+                    Made</th>
+                <th (click)="sort('FieldGoalsAttempt')" class="hover:cursor-pointer border border-gray-300">Field Goals
+                    Attempt</th>
+                <th (click)="sort('FieldGoalPercent')" class="hover:cursor-pointer border border-gray-300">Field Goal
+                    Percent</th>
+                <th (click)="sort('3PointMade')" class="hover:cursor-pointer border border-gray-300">3 Point Made
+                </th>
+                <th (click)="sort('3PointAttempt')" class="hover:cursor-pointer border border-gray-300">3 Point
+                    Attempt</th>
+                <th (click)="sort('3PointPercent')" class="hover:cursor-pointer border border-gray-300">3 Point
+                    Percent</th>
+                <th (click)="sort('FreeThrowMade')" class="hover:cursor-pointer border border-gray-300">Free Throw Made
+                </th>
+                <th (click)="sort('FreeThrowAttempt')" class="hover:cursor-pointer border border-gray-300">Free Throw
+                    Attempt</th>
+                <th (click)="sort('FreeThrowPercent')" class="hover:cursor-pointer border border-gray-300">Free Throw
+                    Percent</th>
+                <th (click)="sort('OffensiveRebounds')" class="hover:cursor-pointer border border-gray-300">Offensive
+                    Rebounds</th>
+                <th (click)="sort('DefensiveRebounds')" class="hover:cursor-pointer border border-gray-300">Defensive
+                    Rebounds</th>
+                <th (click)="sort('Rebounds')" class="hover:cursor-pointer border border-gray-300">Rebounds</th>
+                <th (click)="sort('Assists')" class="hover:cursor-pointer border border-gray-300">Assists</th>
+                <th (click)="sort('Steals')" class="hover:cursor-pointer border border-gray-300">Steals</th>
+                <th (click)="sort('Blocks')" class="hover:cursor-pointer border border-gray-300">Blocks</th>
+                <th (click)="sort('Turnovers')" class="hover:cursor-pointer border border-gray-300">Turnovers</th>
+            </tr>
+            <tr *ngFor="let player of playerData">
+                <td class="border border-gray-300"><a [routerLink]="['/player', player.Name]">{{ player.Name }}</a></td>
+                <td class="border border-gray-300">{{ player.GamesPlayed }}</td>
+                <td class="border border-gray-300">{{ player.MinutesPlayed }}</td>
+                <td class="border border-gray-300">{{ player.PointsPerGame }}</td>
+                <td class="border border-gray-300">{{ player.FieldGoalsMade }}</td>
+                <td class="border border-gray-300">{{ player.FieldGoalsAttempt }}</td>
+                <td class="border border-gray-300">{{ player.FieldGoalPercent }}</td>
+                <td class="border border-gray-300">{{ player["3PointMade"] }}</td>
+                <td class="border border-gray-300">{{ player["3PointAttempt"] }}</td>
+                <td class="border border-gray-300">{{ player["3PointPercent"] }}</td>
+                <td class="border border-gray-300">{{ player.FreeThrowMade }}</td>
+                <td class="border border-gray-300">{{ player.FreeThrowAttempt }}</td>
+                <td class="border border-gray-300">{{ player.FreeThrowPercent }}</td>
+                <td class="border border-gray-300">{{ player.OffensiveRebounds }}</td>
+                <td class="border border-gray-300">{{ player.DefensiveRebounds }}</td>
+                <td class="border border-gray-300">{{ player.Rebounds }}</td>
+                <td class="border border-gray-300">{{ player.Assists }}</td>
+                <td class="border border-gray-300">{{ player.Steals }}</td>
+                <td class="border border-gray-300">{{ player.Blocks }}</td>
+                <td class="border border-gray-300">{{ player.Turnovers }}</td>
+            </tr>
+        </table>
+    </div> -->
+    <div class="overflow-x-auto mx-4 py-6">
+        <table class="table-auto w-full border-separate border border-gray-300 rounded-xl">
+            <!-- Table Header -->
+            <thead class="bg-gray-200 text-sm text-gray-700">
+                <tr>
+                    <th (click)="sort('Name')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Name</th>
+                    <th (click)="sort('GamesPlayed')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Games Played</th>
+                    <th (click)="sort('MinutesPlayed')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Minutes Played</th>
+                    <th (click)="sort('PointsPerGame')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Points Per Game</th>
+                    <th (click)="sort('FieldGoalsMade')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Field Goals Made
+                    </th>
+                    <th (click)="sort('FieldGoalsAttempt')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Field Goals Attempt
+                    </th>
+                    <th (click)="sort('FieldGoalPercent')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Field Goal Percent
+                    </th>
+                    <th (click)="sort('3PointMade')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">3 Point Made</th>
+                    <th (click)="sort('3PointAttempt')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">3 Point Attempt</th>
+                    <th (click)="sort('3PointPercent')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">3 Point Percent</th>
+                    <th (click)="sort('FreeThrowMade')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Free Throw Made</th>
+                    <th (click)="sort('FreeThrowAttempt')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Free Throw Attempt
+                    </th>
+                    <th (click)="sort('FreeThrowPercent')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Free Throw Percent
+                    </th>
+                    <th (click)="sort('OffensiveRebounds')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Offensive Rebounds
+                    </th>
+                    <th (click)="sort('DefensiveRebounds')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Defensive Rebounds
+                    </th>
+                    <th (click)="sort('Rebounds')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Rebounds</th>
+                    <th (click)="sort('Assists')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Assists</th>
+                    <th (click)="sort('Steals')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Steals</th>
+                    <th (click)="sort('Blocks')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Blocks</th>
+                    <th (click)="sort('Turnovers')"
+                        class="cursor-pointer py-3 px-4 border-b border-gray-300 hover:bg-gray-100">Turnovers</th>
+                </tr>
+            </thead>
+
+            <!-- Table Body -->
+            <tbody class="text-sm text-gray-700">
+                <tr *ngFor="let player of playerData" class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+                    <td class="py-3 px-4 border-b border-gray-300"><a [routerLink]="['/player', player.Name]"
+                            class="text-blue-500 hover:underline">{{ player.Name }}</a></td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.GamesPlayed }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.MinutesPlayed }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.PointsPerGame }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.FieldGoalsMade }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.FieldGoalsAttempt }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.FieldGoalPercent }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player["3PointMade"] }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player["3PointAttempt"] }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player["3PointPercent"] }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.FreeThrowMade }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.FreeThrowAttempt }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.FreeThrowPercent }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.OffensiveRebounds }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.DefensiveRebounds }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.Rebounds }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.Assists }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.Steals }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.Blocks }}</td>
+                    <td class="py-3 px-4 border-b border-gray-300">{{ player.Turnovers }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

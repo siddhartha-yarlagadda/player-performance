@@ -1,0 +1,217 @@
+<div class="h-full w-full m-4">
+    <div class="text-lg font-bold">
+        {{"Player Performance of "+playerName}}
+    </div>
+    @if (playerObj) {
+    <div class="flex flex-row">
+        <!-- <div>
+            <table border="1">
+                <tr>
+                    <td>Name</td>
+                    <td>{{ playerObj.Name }}</td>
+                </tr>
+                <tr>
+                    <td>Games Played</td>
+                    <td>{{ playerObj.GamesPlayed }}</td>
+                </tr>
+                <tr>
+                    <td>Minutes Played</td>
+                    <td>{{ playerObj.MinutesPlayed }}</td>
+                </tr>
+                <tr>
+                    <td>Points Per Game</td>
+                    <td>{{ playerObj.PointsPerGame }}</td>
+                </tr>
+                <tr>
+                    <td>Field Goals Made</td>
+                    <td>{{ playerObj.FieldGoalsMade }}</td>
+                </tr>
+                <tr>
+                    <td>Field Goals Attempt</td>
+                    <td>{{ playerObj.FieldGoalsAttempt }}</td>
+                </tr>
+                <tr>
+                    <td>Field Goal Percent</td>
+                    <td>{{ playerObj.FieldGoalPercent }}</td>
+                </tr>
+                <tr>
+                    <td>3 Point Made</td>
+                    <td>{{ playerObj["3PointMade"] }}</td>
+                </tr>
+                <tr>
+                    <td>3 Point Attempt</td>
+                    <td>{{ playerObj["3PointAttempt"] }}</td>
+                </tr>
+                <tr>
+                    <td>3 Point Percent</td>
+                    <td>{{ playerObj["3PointPercent"] }}</td>
+                </tr>
+                <tr>
+                    <td>Free Throw Made</td>
+                    <td>{{ playerObj.FreeThrowMade }}</td>
+                </tr>
+                <tr>
+                    <td>Free Throw Attempt</td>
+                    <td>{{ playerObj.FreeThrowAttempt }}</td>
+                </tr>
+                <tr>
+                    <td>Free Throw Percent</td>
+                    <td>{{ playerObj.FreeThrowPercent }}</td>
+                </tr>
+                <tr>
+                    <td>Offensive Rebounds</td>
+                    <td>{{ playerObj.OffensiveRebounds }}</td>
+                </tr>
+                <tr>
+                    <td>Defensive Rebounds</td>
+                    <td>{{ playerObj.DefensiveRebounds }}</td>
+                </tr>
+                <tr>
+                    <td>Rebounds</td>
+                    <td>{{ playerObj.Rebounds }}</td>
+                </tr>
+                <tr>
+                    <td>Assists</td>
+                    <td>{{ playerObj.Assists }}</td>
+                </tr>
+                <tr>
+                    <td>Steals</td>
+                    <td>{{ playerObj.Steals }}</td>
+                </tr>
+                <tr>
+                    <td>Blocks</td>
+                    <td>{{ playerObj.Blocks }}</td>
+                </tr>
+                <tr>
+                    <td>Turnovers</td>
+                    <td>{{ playerObj.Turnovers }}</td>
+                </tr>
+            </table>
+        </div> -->
+        <div class="overflow-x-auto px-4 py-6">
+            <table class="min-w-full table-auto bg-white border-collapse border border-gray-200 rounded-lg shadow-lg">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Statistic</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Name</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.Name }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Games Played</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.GamesPlayed }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Minutes Played</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.MinutesPlayed }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Points Per Game</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.PointsPerGame }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Field Goals Made</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.FieldGoalsMade }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Field Goals Attempt</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.FieldGoalsAttempt }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Field Goal Percent</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.FieldGoalPercent }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">3 Point Made</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj["3PointMade"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">3 Point Attempt</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj["3PointAttempt"] }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">3 Point Percent</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj["3PointPercent"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Free Throw Made</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.FreeThrowMade }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Free Throw Attempt</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.FreeThrowAttempt }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Free Throw Percent</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.FreeThrowPercent }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Offensive Rebounds</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.OffensiveRebounds }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Defensive Rebounds</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.DefensiveRebounds }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Rebounds</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.Rebounds }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Assists</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.Assists }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Steals</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.Steals }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">Blocks</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.Blocks }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">Turnovers</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ playerObj.Turnovers }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- <div class="flex flex-col ml-20">
+            <span> {{"TS% : "+tsp}}</span>
+            <span> {{"eFG% : "+efgp}}</span>
+            <span>{{"PER : "+per}}</span>
+        </div> -->
+        <div class="overflow-x-auto px-4 py-6">
+            <table class="min-w-full table-auto bg-white border border-gray-200 rounded-lg shadow-lg">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Metric</th>
+                        <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">TS%</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ tsp }}</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="px-4 py-2 text-sm text-gray-700">eFG%</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ efgp }}</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-sm text-gray-700">PER</td>
+                        <td class="px-4 py-2 text-sm text-gray-900">{{ per }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    } @else {
+    <p class="mt-4 text-gray-700">No player named "{{ playerName }}" was found. <a routerLink="/" class="text-blue-500 hover:underline">Back to all players</a></p>
+    }
+</div>

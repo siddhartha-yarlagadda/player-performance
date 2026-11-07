@@ -1,0 +1,40 @@
+<div class="px-4 bg-slate-200 bg-cover bg-center bg-no-repeat">
+    <div class="space-y-4">
+        <!-- First Dropdown for Attribute Selection -->
+        <div>
+            <label for="attribute1" class="block text-sm font-medium text-gray-700">Select Attribute 1</label>
+            <select id="attribute1" [(ngModel)]="selectedAttribute1" (change)="updateComparision()"
+                class="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option *ngFor="let attribute of attributes" [value]="attribute">{{ attribute }}</option>
+            </select>
+        </div>
+
+        <!-- Second Dropdown for Attribute Selection -->
+        <div>
+            <label for="attribute2" class="block text-sm font-medium text-gray-700">Select Attribute 2</label>
+            <select id="attribute2" [(ngModel)]="selectedAttribute2" (change)="updateComparision()"
+                class="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option *ngFor="let attribute of attributes" [value]="attribute">{{ attribute }}</option>
+            </select>
+        </div>
+    </div>
+    <canvas id="clusterChart"></canvas>
+    <h2>Player Clustering Results</h2>
+    <div class="overflow-x-scroll mx-1">
+        <table class="table-auto w-full border border-gray-300 rounded-xl">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300">Cluster</th>
+                    <th class="border border-gray-300">Player Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate through the data and display Player Name and Cluster -->
+                <tr *ngFor="let item of clusters">
+                    <td class="border border-gray-300">{{ item.cluster+1 }}</td>
+                    <td class="border border-gray-300">{{ item.player.Name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
